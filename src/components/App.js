@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router'
+import NavLink from './NavLink'
 
 class App extends Component {
   render() {
@@ -7,12 +9,13 @@ class App extends Component {
         <header>
           <span className="icn-logo"><i className="material-icons">code</i></span>
           <ul className="main-nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/teachers">Teachers</a></li>
-            <li><a href="/courses">Courses</a></li>
-          </ul>       
+            <li><NavLink to="/" name="Home"></NavLink></li>
+            <li><NavLink to="/about" name="About"></NavLink></li>
+            <li><NavLink to="/teachers" name="Teachers"></NavLink></li>
+            <li><NavLink to="/courses"name="Courses"></NavLink></li>
+          </ul>
         </header>
+        { this.props.children }
       </div>
     );
   }

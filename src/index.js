@@ -1,15 +1,15 @@
 // Libs
 import React from 'react';
 import { render } from 'react-dom';
+import { Router, Route, browserHistory } from 'react-router';
 
-// CSS 
+// CSS
 import './css/style.css';
 
-// Components
-import App from './components/App';
+// import routes
+import routes from './router.js'
 
 // Render
-render(
-  <App />,
-  document.getElementById('root')
-);
+render((
+  routes
+), document.getElementById('root'));
