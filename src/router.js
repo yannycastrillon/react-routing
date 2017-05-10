@@ -9,6 +9,7 @@ import About from './components/About';
 import Courses from './components/Courses';
 import Teachers from './components/Teachers';
 import NotFound from './components/NotFound';
+import Featured from './components/Featured';
 
 // import Course from './components/courses/Course';
 // import CSS from './components/courses/CSS';
@@ -29,6 +30,7 @@ const routes = (
         <Route path="html" component={CourseContainer} data={CourseList.HTML}/>
         <Route path="javascript" component={CourseContainer}data={CourseList.JS}/>
       </Route>
+      <Route path="featured/:topic/:name" component={Featured} />
       <Route path="*" component={NotFound} />
    </Route>
   </Router>
