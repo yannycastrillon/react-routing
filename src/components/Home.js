@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 
 class Home extends Component {
+
+  handleSubmit(event) {
+    event.preventDefault();
+    let teacherName = event.target.elements[0].value;
+    let teacherTopic= event.target.elements[1].value;
+    let path = `featured/${teacherTopic}/${teacherName}`;
+    // This is going to redirect the user to the new URL store in path
+    browserHistory.push(path);
+  }
+
   render() {
     return (
       <div className="main-content home">
@@ -11,9 +21,11 @@ class Home extends Component {
         <p>We have thousands of videos created by expert teachers on web design and front end development. Our library is continually refreshed with the latest on web technology so you will never fall behind.</p>
         <hr />
         <h3>Feature Teachers</h3>
-        <Link to="/Featured/HTLM/Tommy">Tommy Wingo</Link>
-        <Link to="/Featured/CSS/Yanny Castrillon">Yanny Castrillon</Link>
-        <Link to="/Featured/JavaScript/Kevin Wein">Kevin Wein</Link>
+        <form onSubmit={this.handleSubmit}>
+          <input type="text" placeholder="name"></input>
+          <input type="text" placeholder="topic"></input>
+          <button type="submit">Go!</button>
+        </form>
       </div>
     );
   }
